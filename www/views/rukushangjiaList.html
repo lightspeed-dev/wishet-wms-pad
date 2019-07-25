@@ -1,0 +1,110 @@
+<ion-view view-title="Dashboard">
+
+  <ion-header-bar class="bar-positive">
+    <button class="button button-clear button-white iconfont icon-fanhui" ui-sref="app.home.rukushangjia">
+      返回
+    </button>
+    <div class="title">
+      上架商品详情
+    </div>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="list tableWrap cTable">
+      <table class="table">
+        <tbody>
+        <tr>
+          <td colspan="6" style="text-align: center;">
+            <span style="color: #666;font-size: 16px;">上架货位</span>
+            <span style="color: #333;" ng-bind="x.jihuahuowei"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>商品编号</td>
+          <td>
+            <span ng-bind="x.shangpinbianhao"></span>
+          </td>
+          <td>
+            商品名称
+          </td>
+          <td ng-bind="x.shangpinmingcheng">
+
+          </td>
+          <td>
+            商品规格
+          </td>
+          <td ng-bind="x.shangpinguige"></td>
+        </tr>
+        <!---->
+        <tr>
+          <td>
+            批准文号
+          </td>
+          <td ng-bind="x.pizhunwenhao"></td>
+          <td>
+            包装数量
+          </td>
+          <td ng-bind="x.baozhuangshuliang"></td>
+          <td>
+            包装单位
+          </td>
+          <td ng-switch="x.baozhuangdanwei">
+
+          </td>
+        </tr>
+        <!---->
+        <tr>
+          <td>
+            中包装数量
+          </td>
+          <td ng-bind="x.zbzsl"></td>
+          <td>生产厂家</td>
+          <td ng-bind="x.shengchanchangjia" colspan="3"></td>
+        </tr>
+        <tr>
+          <td>整件数</td>
+          <td>
+            <input class="text" ng-disabled="!all" ng-model="x.zhengjianshu" ng-change="calcSL()">
+
+          </td>
+          <td>零散数</td>
+          <td>
+            <input class="text" ng-disabled="!all" ng-model="x.lingsanshu" ng-change="calcSL()">
+
+          </td>
+          <td>数量</td>
+          <td ng-bind="x.syshuliang"></td>
+        </tr>
+
+        <!---->
+        <tr>
+          <td>批号</td>
+          <td ng-bind="x.pihao"></td>
+          <td>生产日期</td>
+          <td ng-bind="x.shengchanriqi"></td>
+          <td>有效期至</td>
+          <td ng-bind="x.youxiaoqizhi"></td>
+        </tr>
+        <!---->
+        <tr>
+          <td colspan="6">
+            <div class="bar bar-header item-input-inset chartBar taskBar" >
+              实际上架货位
+              <div class="item-input-wrapper" style="margin-right: 20px;">
+                <input type="text" ng-model="x.shijihuowei" ng-blur="cheeck()" placeholder="请扫码或者输入实际上架货位">
+                <i class="icon ion-qr-scanner" ng-click="sihwsaomiao()"></i>
+              </div>
+            </div>
+
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+      <div class="btnWrap" style="padding-top: 0;">
+        <button class="button cancelBtn" ng-click="chaifen()">拆分</button>
+        <button class="button wmsBtn" ng-click="queding()">确定</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

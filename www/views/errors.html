@@ -1,0 +1,18 @@
+<ion-pane>
+    <div class="bar bar-header bar-positive">
+        <button class="button button-clear button-white iconfont icon-fanhui"></button>
+        <div class="title">失败</div>
+    </div>
+    <ion-content class="success text-center has-header">
+        <i class="iconfont icon-shibai redSpan"></i>
+
+        <!--订单支付失败-->
+        <div ng-hide="num!=='4'">
+            <h3 class="redSpan">支付失败，请重新支付</h3>
+            <button class="button button-block button-positive" ui-sref="tab.home">重新支付</button>
+        </div>
+
+
+
+    </ion-content>
+</ion-pane>

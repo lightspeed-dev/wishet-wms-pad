@@ -1,0 +1,64 @@
+<div class="col-lg-12 table-responsive" style="padding: 0 15px;border:none;">
+  <div class="col-lg-12 table-responsive" style="padding: 0;border:none;overflow:auto;margin-bottom:20px;">
+    <!-- 行汇总信息 -->
+    <table class="table table-bordered table-hover table-condensed mediaTable rt">
+      <thead class="clearfix">
+      <tr style="font-weight: 800;" >
+        <th ng-repeat="col in _$heads  | filter: {isShow:true}  track by $index"  ng-drop="true" ng-drop-success="dropComplete($index,$data)" >
+          <p  ng-drag="true" ng-drag-data="col">
+            <span  ng-click="setSortType(col,1)" style="display: inline-block;">{{col.caption}}</span>
+          </p>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-if="rows.length==0">
+        <td colspan="50" align="center" colspan="{{_$heads.length+1}}" >暂无数据...</td>
+      </tr>
+      <tr ng-repeat="row in rows track by $index"  ng-if="rows" >
+        <td ng-repeat="col in _$heads ">
+          <span >
+               {{row[col.col]}}
+          </span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <!-- 行汇总信息 -->
+  </div>
+  <!--分页组件<div class="cf" ng-show="pageInfo.totalCount>pageInfo.pageSize">-->
+  <!--pageNumber  当前页数-->
+  <!--pageSize   一页显示多少条-->
+  <!--totalPage 总页数-->
+  <!--totalRow 总条数-->
+  <div ng-if="pageInfo.totalRow>pageInfo.pageSize" class="isMobile" style="text-align: center;">
+    <div class="" style="line-height: 33px;">当前 {{pageInfo.pageNumber}} / {{pageInfo.totalPage}}页，共
+      {{pageInfo.totalRow}} 条记录
+    </div>
+    <div class="pagging clearfix">
+      <ul  style="margin:0;">
+        <li ng-class="{'disabled':pageInfo.pageNumber===1}" ng-disabled="pageInfo.pageNumber===1"
+            ng-click="setPage('begin')"><a>首页</a></li>
+
+        <li ng-class="{'disabled':pageInfo.pageNumber===1}" ng-disabled="pageInfo.pageNumber===1"
+            ng-click="setPage('prev')"><a>« </a></li>
+
+        <li>
+          <select name="" id="" ng-model="selectedName"  ng-options="item for item in pageInfo.pageItems" ng-change="setPage(selectedName)">
+
+          </select>
+        </li>
+
+        <li ng-class="{'disabled':pageInfo.pageNumber===pageInfo.totalPage}" ng-click="setPage('next')"
+            ng-disabled="pageInfo.pageNumber===pageInfo.totalPage"><a>
+          »</a></li>
+
+        <li ng-class="{'disabled':pageInfo.pageNumber===pageInfo.totalPage}" ng-click="setPage('end')"
+            ng-disabled="pageInfo.pageNumber===pageInfo.totalPage"><a>
+          尾页</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+</div>

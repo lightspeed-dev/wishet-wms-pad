@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title></title>
+</head>
+<body ng-app="App">
+
+
+
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+<script type="text/javascript" src="lib/js/angular.min.js"></script>
+<script>
+  var App = angular.module("App", []);
+
+  App.directive('billtime', function ($interval) {
+    return {
+      require: '?ngModel',
+      restrict: 'EAC',
+      scope: {
+        bound: "@",//
+        triggers: "@",
+        checkrules: "@",
+        init: "@",
+        formatters: "@",
+        properties: "@",
+        key: "@",
+        renderid: "@",
+        dateFormat: "@",
+        required: "@",
+      },
+      template : '<span>{{timehtml}}</span>',
+
+      link: function (scope, element, attrs, ngModel) {//链接端函数
+        // scope.ngModel = ngModel;//模型应用
+        // scope.$q = $q;//$q引用
+        // scope.$http = $http;//$http引用
+        // //混合器，指令初始代码
+        // mixer(abstractDirective, scope);
+        // scope.$execute();
+        // var _parent = _$util.getParent(scope).scope;
+
+//          init的时候调用  this.formatDate();
+        scope.timehtml="ces";
+        var time;
+        scope.countdown=function () {
+          scope.newDate =$interval(function (date) {
+//              获取服务器时间
+            var date = new Date();
+            var year = String(date.getFullYear());
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            var weekDay=new Array('星期一','星期二','星期三','星期四','星期五','星期六','星期日');
+            var hour=hour>9?hour:"0"+hour;
+            var min=min>9?min:"0"+min;
+            var sec=sec>9?sec:"0"+sec;
+
+            time=year+ "年" + month + "月" +day + "日" + ""+hour + ":" + min + ":" + sec+ " "+weekDay[date.getDay()-1];
+            // ngModel.$setViewValue(time);
+            scope.timehtml=time;
+            //scope.$apply();
+            console.log(time)
+          },1000);
+        }
+
+        scope.countdown();
+      }
+//
+    }
+  });
+
+</script>
+
+<div>
+  <div  billtime ></div>
+</div>
+</body>
+<html>

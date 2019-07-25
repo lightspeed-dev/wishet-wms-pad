@@ -1,0 +1,37 @@
+<style>
+  .scroll{
+    background: #fff;
+  }
+</style>
+<ion-view view-title="分配复核台信息">
+  <ion-header-bar class="bar-positive">
+    <button class="button button-clear button-white iconfont icon-fanhui" ui-sref="jianhuoshangpingDetail">
+      返回
+    </button>
+    <div class="title">
+      分配复核台信息
+    </div>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="fuhetai">
+      <div class="fuheItem" ng-repeat="g in jianhuodanList">
+        <div class="subItem">
+          <h3>拣选小车位置</h3>
+          <div class="serial">
+            {{$index+1}}
+          </div>
+        </div>
+        <p>
+          容器编号
+          <span>{{g.rongqihao}}</span>
+        </p>
+        <p>复核位
+          <span>{{g.fuhetai}}</span>
+        </p>
+      </div>
+    </div>
+    <div style="text-align: center;margin-top: 40px;">
+      <button ng-click="queding()" class="button wmsBtn" style="width: 150px;">确定</button>
+    </div>
+  </ion-content>
+</ion-view>

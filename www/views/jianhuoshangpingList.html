@@ -1,0 +1,66 @@
+<ion-view view-title="拣货商品列表">
+  <ion-header-bar class="bar-positive">
+    <button class="button button-clear button-white iconfont icon-fanhui" ui-sref="app.home.chukujianhuo">
+      返回
+    </button>
+    <div class="title">
+      拣货商品列表
+    </div>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="bar bar-header item-input-inset chartBar" style="background: #fff;">
+      <div class="item-input-wrapper" style="background: #F3F3F3;">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="请输入或者扫描商品条码、货位条码"  placeholder="①手工录入②设备扫描：点击“回车”/“查询”按钮进行关联任务" ng-model="shangping.goodsid" >
+        <i class="icon ion-qr-scanner" ng-click="scanBarcode()"></i>
+      </div>
+      <button class="button wmsBtn" ng-click="getGoods()">
+        查询
+      </button>
+    </div>
+
+      <div class="tableWrap">
+        <table class="table" ng-if="goodsList.length>0">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th >已拣货</th>
+                <th>容器编号</th>
+                <th>货位</th>
+                <th>商品编号</th>
+                <th>商品名称</th>
+                <th>包装数量</th>
+                <th>包装单位</th>
+                <th>批号</th>
+                <th>整件数</th>
+                <th>零散数</th>
+                <th>数量</th>
+                <th>批准文号</th>
+                <th>生产厂家</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="g in goodsList" ui-sref="jianhuoshangpingDetail({BillDtlID: g.BillDtlID})" align="center">
+                <td>{{$index+1}}</td>
+                <td><span ng-if="g.status ==37">否</span><span ng-if="g.status == 38">是</span></td>
+                <td>{{g.rongqihao}}</td>
+                <td>{{g.xiajiahuoweibianhao}}</td>
+                <td>{{g.shangpinbianhao}}</td>
+                <td>{{g.shangpinmingcheng}}</td>
+                <td>{{g.baozhuangshuliang}}</td>
+                <td>{{g.baozhuangshuliang}}</td>
+                <td>{{g.shangpingpihaosn}}</td>
+                <td>{{g.jianshu}}</td>
+                <td>{{g.shuliang}}</td>
+                <td>{{g.zongshuliang}}</td>
+                <td>{{g.pizhunwenhao}}</td>
+                <td>{{g.shengchanchangjia}}</td>
+              </tr>
+            </tbody>
+        </table>
+
+      </div>
+    <div class="noData" ng-if="goodsList.length==0">暂无数据</div>
+
+  </ion-content>
+</ion-view>

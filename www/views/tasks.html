@@ -1,0 +1,28 @@
+<style>
+  .scroll{height: 100%;}
+</style>
+<ion-view>
+  <ion-content>
+    <ion-tabs class="tabs-icon-only tabs-positive tabs-top taskTabs">
+      <ion-tab title="入库上架" ui-sref="app.tasks.rukushangjiatasks">
+        <ion-nav-view animation="slide-left-right" name="rukushangjiatasks"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="出库拣货" ui-sref="app.tasks.chukujianhuotasks">
+        <ion-nav-view animation="slide-left-right" name="chukujianhuotasks"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="出库内复核" ui-sref="app.tasks.chukuneifuhetasks">
+        <ion-nav-view animation="slide-left-right" name="chukuneifuhetasks"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="出库外复核" ui-sref="app.tasks.chukuwaifuhetasks">
+        <ion-nav-view animation="slide-left-right" name="chukuwaifuhetasks"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="库内补货" ui-sref="app.tasks.kuneibuhuotasks">
+        <ion-nav-view animation="slide-left-right" name="kuneibuhuotasks"></ion-nav-view>
+      </ion-tab>
+    </ion-tabs>
+  </ion-content>
+</ion-view>

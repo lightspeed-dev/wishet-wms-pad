@@ -1,0 +1,36 @@
+<ion-pane class="light-bg">
+  <ion-content class="login padding0">
+
+    <div class="loginBox">
+      <img src="images/login-logo.png" style="width:99px; height: 32px;">
+      <h3>武汉小药药科技有限公司仓储管理系统</h3>
+      <!---->
+      <div class="list loginList ">
+        <h2>登录</h2>
+        <label class="item item-input">
+          <i class="iconfont icon-shouji graySpan"  style="font-size: 24px !important;width: 28px;display: inline-block;text-align: center;"></i>
+          <input type="tel" placeholder="账户" maxlength="11" ng-model="user.mobile" ng-blur="setVerCodeShow()">
+        </label>
+        <label class="item item-input">
+          <i class="iconfont icon-xiugaimima graySpan" style="font-size: 30px;"></i>
+          <input type="password" placeholder="密码" maxlength="16" ng-model="user.pwd">
+        </label>
+
+        <label class="item item-input item-select"  ng-if="showVerCode">
+          <i class="iconfont icon-diqu graySpan" style="font-size: 20px !important;width: 28px;display: inline-block;text-align: center;"></i>
+          <select ng-model="user.orgId" ng-options="x.id as x.orgName for x in organization" class="signup-form ">
+            <option value="">请选择机构</option>
+          </select>
+        </label>
+
+        <div class="item item-input margin-bottom2" ng-if="showVerCode">
+          <i class="iconfont icon-yanzhengma graySpan" style="font-size: 30px;"></i>
+          <input type="text" placeholder="验证码" maxlength="4" ng-model="user.authCode">
+          <img  class="verCode"  id="authCode" ng-src="{{user.src}}" ng-click="getVerCode()">
+        </div>
+
+        <button ng-disabled="!organization || organization =='' || !user.orgId || user.orgId==''" ng-class="{'disabled':!organization || organization ==''|| !user.orgId  || user.orgId==''}" class="button button-positive button-block login-btn" ng-click="login()">登录</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-pane>

@@ -1,0 +1,45 @@
+<ion-pane>
+  <ion-header-bar class="bar-positive">
+    <button class="button button-clear button-white iconfont icon-fanhui" ng-click="goBack()">
+      <i class="icon ion-ios-arrow-left"></i>
+    </button>
+    <div class="title">我的</div>
+  </ion-header-bar>
+  <!-- -->
+  <ion-content class="myAccount grayBg">
+    <div class="item item-avatar item-avatar-large margin-bottom2" ng-click="checkState(1)">
+      <!--<img ng-src="{{user.imgSrc}}">-->
+      <img src="images/ionic.png" alt="">
+      <h2 ng-bind="userName"></h2>
+      <div>
+        <span>采购员</span>
+        <span class="item-note text-right ion-ios-arrow-right iconRight"></span>
+      </div>
+    </div>
+
+    <div class="item" ui-sref="mytasklist">
+      <i class="iconfont  royalSmallCircle"></i>
+      我的任务
+      <span class="item-note text-right ion-ios-arrow-right iconRight"></span>
+    </div>
+
+    <div class="item"  ui-sref="editPassword">
+      <i class="iconfont  redSmallCircle"></i>
+      修改密码
+      <span class="item-note text-right ion-ios-arrow-right iconRight"></span>
+    </div>
+    <div class="item"  ui-sref="aboutus">
+      <i class="iconfont  redSmallCircle"></i>
+      关于
+      <span class="item-note text-right ion-ios-arrow-right iconRight"></span>
+    </div>
+
+    <div class="item" ng-click="logout()">
+      <i class="iconfont  redSmallCircle"></i>
+      退出登录
+      <span class="item-note text-right ion-ios-arrow-right iconRight"></span>
+    </div>
+
+
+  </ion-content>
+</ion-pane>

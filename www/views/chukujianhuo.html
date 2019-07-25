@@ -1,0 +1,62 @@
+<style>
+  th,td{text-align: center;}
+</style>
+<ion-view view-title="出库拣货">
+  <ion-content class="padding" style="top:44px;">
+    <div style="background: #fff;">
+    <div class="bar bar-header item-input-inset chartBar taskBar">
+      容器编号
+      <div class="item-input-wrapper" >
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="number" ng-model="rongqi.rongqihao" placeholder="①手工录入②设备扫描：点击“回车”/“查询”按钮进行关联任务">
+        <i class="icon ion-qr-scanner" ng-click="spsaomiao()"></i>
+      </div>
+
+      <button class="button wmsBtn" ng-click="bindRongqihao()">
+        索取容器
+      </button>
+    </div>
+
+      <div class="col" ng-if="rongqi.rongqihao">
+        <h1 style="color: #333;">请将容器{{rongqi.rongqihao}} 放置到{{tasks.length+1}}号位置</h1>
+        <p style="color: #999;">
+          当前拣选小车已关联容器个数：{{tasks.length}}
+        </p>
+      </div>
+    </div>
+
+    <div class="tableWrap">
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>订单号</th>
+          <th>小车位置</th>
+          <th>容器编号</th>
+          <th>拣货单号</th>
+          <th>品规数</th>
+          <th>条目数</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="t in tasks">
+          <td>{{t.dingdanbianhao}}</td>
+          <td ng-bind="t.carNumber"></td>
+          <td>{{t.rongqihao}}</td>
+          <td>{{t.taskCode}}</td>
+          <td>{{t.pingguishu}}</td>
+          <td>{{t.tiaomushu}}</td>
+        </tr>
+        <tr>
+          <td colspan="6" style="text-align: center;">
+            <button class="button wmsBtn" ui-sref="jianhuoshangpingList">
+              开始拣货
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </ion-content>
+</ion-view>

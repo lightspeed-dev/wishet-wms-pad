@@ -1,0 +1,44 @@
+<ion-view view-title="小药药WMS-出库内复核">
+    出库内复核
+  <ion-content  style="top:44px;"  class="padding">
+    <div class="list tableWrap" ng-if="shangpin.length>0">
+      <table class="table"  >
+        <thead>
+        <tr>
+          <th>序号</th>
+          <th>订单日期</th>
+          <th>订单编号</th>
+          <th>商品编号</th>
+          <th>商品名称</th>
+          <th>包装数量</th>
+          <th>包装单位</th>
+          <th>数量</th>
+          <th>批号</th>
+          <th>生产日期</th>
+          <th>有效日期</th>
+          <th>货位</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="x in shangpin" >
+          <td>{{$index+1}}</td>
+          <td>{{x.createTime}}</td>
+          <td>{{x.dingdanbianhao}}</td>
+          <td>{{x.shangpinbianhao}}</td>
+          <td>{{x.shangpinmingcheng}}</td>
+          <td>{{x.yifuheshuliang}}</td>
+          <td>{{x.danwei}}</td>
+          <td>{{x.jihuashuliang}}</td>
+          <td>{{x.shangpingpihaosn}}</td>
+          <td>{{x.shengchanriqi}}</td>
+          <td>{{x.youxiaoqizhi}}</td>
+          <td>{{x.xiajiahuoweibianhao}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ion-infinite-scroll ng-if="hasData=='true'"  on-infinite="loadMore()"  distance="1%" ></ion-infinite-scroll>
+    <div class="noData"  ng-if="shangpin.length==0">暂无数据</div>
+  </ion-content>
+</ion-view>

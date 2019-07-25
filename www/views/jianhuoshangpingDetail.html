@@ -1,0 +1,111 @@
+<ion-view view-title="拣货商品详情">
+  <ion-header-bar class="bar-positive">
+    <button class="button button-clear button-white iconfont icon-fanhui" ui-sref="jianhuoshangpingList">
+      返回
+    </button>
+    <div class="title">
+      拣货商品详情
+    </div>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="list tableWrap cTable">
+      <table class="table">
+        <tbody>
+        <tr>
+          <td colspan="6" style="text-align: center;">
+            <span style="color: #666;font-size: 16px;">货位</span>
+            <span style="color: #333;font-size: 16px;" ng-bind="goods.xiajiahuoweibianhao"></span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>商品编号</td>
+          <td>{{goods.shangpinbianhao}}</td>
+          <td>商品名称</td>
+          <td>{{goods.shangpinmingcheng}}</td>
+          <td>小车位</td>
+          <td>{{goods.carNumber}}</td>
+        </tr>
+
+        <tr>
+          <td>商品规格</td>
+          <td>{{goods.guige}}</td>
+          <td>批准文号</td>
+          <td>{{goods.pizhunwenhao}}</td>
+          <td>容器号</td>
+          <td>{{goods.rongqihao}}</td>
+        </tr>
+
+
+        <tr>
+          <td>包装数量</td>
+          <td>{{goods.baozhuangshuliang}}</td>
+          <td>包装单位</td>
+          <td>{{goods.danwei}}</td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>中包装数量</td>
+          <td>{{goods.baozhuangshuliang}}</td>
+          <td>生产厂家</td>
+          <td>{{goods.shengchanchangjia}}</td>
+          <td></td>
+          <td></td>
+        </tr>
+
+
+        <tr>
+          <td>整件数</td>
+          <td>
+            <input type="text" class="form-control" ng-model="goods.jianshu" id="zhengjianshuInput">
+          </td>
+          <td>零散数</td>
+          <td>
+            <input type="text" class="form-control" ng-model="goods.shuliang" id="lingsanshuInput">
+
+          </td>
+          <td>数量</td>
+          <td>{{goods.zongshuliang}}</td>
+        </tr>
+
+        <tr>
+          <td>批号</td>
+          <td>{{goods.shangpingpihaosn}}</td>
+          <td>生产日期</td>
+          <td>{{goods.shengchanriqi}}</td>
+          <td>有效期</td>
+          <td>{{goods.youxiaoqizhi}}</td>
+        </tr>
+
+        <tr>
+          <td>异常登记</td>
+          <td colspan="2">
+            <select class="form-control" id="yichangSelect">
+            <option ng-model="goods.yichang"></option>
+            <option ng-model="goods.yichang" >缺货</option>
+            <option ng-model="goods.yichang">错品规</option>
+            <option ng-model="goods.yichang">错批号</option>
+          </select>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="6" style="text-align: center;">
+            <button ng-click="preLine()" ng-disabled="_index<=0" class="button cancelBtn">上一条</button>
+            <button ng-click="nextLine()" ng-disabled="_index==billdtlidarr.length - 1" class="button cancelBtn">下一条
+            </button>
+
+            <button ng-if="goods.status == 38" ng-click="isPicking()" class="button wmsBtn">已拣货</button>
+            <button ng-if="goods.status == 37" ng-click="queren()" class="button wmsBtn">确认</button>
+          </td>
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </ion-content>
+</ion-view>

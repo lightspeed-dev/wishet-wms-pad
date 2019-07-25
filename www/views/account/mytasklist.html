@@ -1,0 +1,44 @@
+<ion-pane class="light-bg" >
+      <ion-header-bar class="bar-positive">
+        <button class="button button-clear button-white iconfont icon-fanhui" ng-click="goBack()">
+          <i class="icon ion-ios-arrow-left"></i>
+        </button>
+        <div class="title">我的任务</div>
+      </ion-header-bar>
+      <ion-content>
+        <div class="list">
+          <li class="item item-icon-left" ui-sref="task({type:0})">
+            <i class="localicon icon-daiban"></i>
+            待办任务
+            <span class="badge badge-assertive">{{taskNum}}</span>
+            <span class="item-note text-right ion-ios-arrow-right iconRight"></span>
+          </li>
+          <li class="item item-icon-left" ui-sref="task({type:1})">
+            <i class="localicon icon-chulizhong"></i>
+            在途任务
+            <span class="badge badge-assertive">{{doTaskNum}}</span>
+            <span class="item-note text-right ion-ios-arrow-right iconRight"></span>
+          </li>
+          <li class="item item-icon-left" ui-sref="task({type:2})">
+            <i class="localicon icon-yiban"></i>
+            已办任务
+            <span class="badge badge-assertive">{{doneTaskNum}}</span>
+            <span class="item-note text-right ion-ios-arrow-right iconRight"></span>
+          </li>
+          <li class="item item-icon-left" ui-sref="task({type:7})">
+            <i class="localicon icon-lease-resv-2home"></i>
+            预约任务
+            <span class="badge badge-assertive">{{orderTaskNum}}</span>
+            <span class="item-note text-right ion-ios-arrow-right iconRight"></span>
+          </li>
+          <li class="item item-icon-left"  ui-sref="task({type:3})">
+            <i class="localicon icon-chuangyikongjianICON_fuzhi-"></i>
+            挂起任务
+            <span class="badge badge-assertive">{{suppendTaskNum}}</span>
+            <span class="item-note text-right ion-ios-arrow-right iconRight"></span>
+          </li>
+
+
+        </div>
+      </ion-content>
+</ion-pane>
